@@ -16,7 +16,10 @@ module.exports = function(controller) {
                     placeholder: 'Write contents here'
                 })
 
-            bot.replyWithDialog(message, dialog.asObject());
+            bot.replyWithDialog(message, dialog.asObject(), function(err, res){
+                console.log(err);
+                console.log(res);
+            });
         }
       }
       if (message.type == 'interactive_message_callback') {
