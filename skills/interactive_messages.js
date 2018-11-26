@@ -10,7 +10,7 @@ module.exports = function(controller) {
             var dialog = bot.createDialog(
                     'Make Github Issue',
                     'make_issue',
-                    'Make issue!'
+                    'Make'
                 ).addText('Title', 'title', 'Title of issue')
                 .addTextarea('Contents', 'contents', 'Contents of issue', {
                     placeholder: 'Write contents here'
