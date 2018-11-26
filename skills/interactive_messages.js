@@ -7,9 +7,9 @@ module.exports = function(controller) {
         // Make github issue
         if  (message.callback_id == 'make_issue') {
             var dialog = bot.createDialog(
-                    'Title of dialog',
+                    'Make Github Issue',
                     'make_issue',
-                    'Submit'
+                    'Make issue!'
                 ).addText('Title', 'title', 'Title of issue')
                 .addTextarea('Contents', 'contents', 'Contents of issue', {
                     placeholder: 'Write contents here'
