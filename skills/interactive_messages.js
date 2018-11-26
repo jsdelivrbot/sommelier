@@ -1,5 +1,5 @@
 module.exports = function(controller) {
-
+    console.log(message);
     // create special handlers for certain actions in buttons
     // if the button action is 'say', act as if user said that thing
     controller.middleware.receive.use(function(bot, message, next) {
