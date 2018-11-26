@@ -3,9 +3,20 @@ module.exports = function(controller) {
     // create special handlers for certain actions in buttons
     // if the button action is 'say', act as if user said that thing
     controller.middleware.receive.use(function(bot, message, next) {
-      console.log("received!");
       if (message.type == 'message_action') {
-          console.log(message);
+        // Make github issue
+        if  (message.callback_id == 'make_issue') {
+            var dialog = bot.createDialog(
+                    'Title of dialog',
+                    'make_issue',
+                    'Submit'
+                ).addText('Title', 'title', 'Title of issue')
+                .addTextarea('Contents', 'contents', 'Contents of issue', {
+                    placeholder: 'Write contents here'
+                })
+
+            bot.replyWithDialog(message, dialog.asObject());
+        }
       }
       if (message.type == 'interactive_message_callback') {
         if (message.actions[0].name.match(/^say$/)) {
