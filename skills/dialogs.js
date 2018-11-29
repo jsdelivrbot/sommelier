@@ -24,7 +24,7 @@ module.exports = function(controller) {
             json: true,
             headers: {
                 "Content-Type": "application/json",
-                "User-Agent": "UA(必須)"
+                "Accept": "application/vnd.github.symmetra-preview+json",
             },
             form: {
                 "title": message.submission.title,
