@@ -18,6 +18,7 @@ module.exports = function(controller) {
     controller.on('dialog_submission', function (bot, message) {
         var submission = message.submission;
         bot.reply(message, "OK, I'll make it! Wait a second...");
+        /*
         res = request({
             url: "http://${process.env.githubUserId}@${process.env.githubAccessToken}:api.github.com/repos/:${process.env.githubUserId}/:${process.env.githubReponame}/issues",
             method: "POST",
@@ -38,6 +39,7 @@ module.exports = function(controller) {
             return res;
         });
         bot.reply(res);
+        */
         // call dialogOk or else Slack will think this is an error
         bot.dialogOk();
     });
