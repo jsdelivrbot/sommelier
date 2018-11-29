@@ -1,3 +1,5 @@
+var request = require('request');
+
 module.exports = function(controller) {
     // validation
     controller.middleware.receive.use(function validateDialog(bot, message, next) {
