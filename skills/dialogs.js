@@ -17,11 +17,9 @@ module.exports = function(controller) {
     // the values from the form are in event.submission    
     controller.on('dialog_submission', function (bot, message) {
         var submission = message.submission;
-        console.log(message);
-        bot.reply(message, 'Got it!');
-        /*
-        request({
-            url: "http://${github_user_id}@${process.env.github_access_token}:api.github.com/repos/:${github_user_id}/:${github_reponame}/issues",
+        bot.reply(message, "OK, I'll make it! Wait a second...");
+        res = request({
+            url: "http://${process.env.githubUserId}@${process.env.githubAccessToken}:api.github.com/repos/:${process.env.githubUserId}/:${process.env.githubReponame}/issues",
             method: "POST",
             json: true,
             headers: {
@@ -29,8 +27,8 @@ module.exports = function(controller) {
                 "User-Agent": "UA(必須)"
             },
             form: {
-                "title": "fuga"
-            }
+                "title": message.submission.title,
+                "body": message.submission.body
             }
         }, (err, res) => {
             if (err) {
@@ -39,7 +37,7 @@ module.exports = function(controller) {
             }
             return res;
         });
-        */
+        bot.reply(res);
         // call dialogOk or else Slack will think this is an error
         bot.dialogOk();
     });
